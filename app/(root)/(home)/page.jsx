@@ -1,11 +1,38 @@
-import React from 'react'
+import React from "react";
+// import { currentUser } from "@clerk/nextjs/server";
+import MeetingTypeList from "@components/MeetingTypeList";
+export default async function Home() {
+  // console.log("Hi", await currentUser());
+  const now = new Date();
+  const time = now.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  const date = now.toLocaleDateString([], {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
-export default function Home() {
   return (
-    <section className='flex size-full flex-col gap-10 text-white'>
+    <section className="flex size-full flex-col gap-10 text-white">
       <h1 className="text-3xl font-bold">
-        Home
+        <div className="h-[300px] w-full rounded-[20px] bg-hero bg-cover bg-no-repeat">
+          <div className="flex h-full flex-col justify-between max-md:px-5 max-md:py-8 p-6 lg:p-11">
+            <h2 className="glassmorphism max-w-[270px] rounded py-2 text-center text-base ">
+              Upcoming Meeting at: 12
+            </h2>
+            <div className="flex flex-col gap-2">
+              <h1 className="text-4xl font-extrabold lg:text-7xl">{time}</h1>
+              <p className="text-lg font-medium text-sky-1 lg:text-2xl">
+                {date}
+              </p>
+            </div>
+          </div>
+        </div>
       </h1>
+      <MeetingTypeList></MeetingTypeList>
     </section>
-  )
+  );
 }
