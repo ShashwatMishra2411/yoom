@@ -8,7 +8,7 @@ import { useGetCallByid } from "@hooks/useGetCallByid";
 import Loader from "@components/Loader";
 
 export default function Meeting({ params }) {
-  const [ call, isLoading ] = useGetCallByid(params.id);
+  const [call, isLoading] = useGetCallByid(params.id);
   const { user, isLoaded } = useUser();
   const [isSetupComplete, setIsSetupComplete] = useState(false);
   if (!isLoaded || isLoading) {
