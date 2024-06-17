@@ -26,15 +26,6 @@ export const useGetCalls = () => {
             ],
           },
         });
-        console.log(
-          await client.queryCalls({
-            filter_conditions: {
-              starts_at: {
-                $gt: new Date(2024, 5, 17, 22, 0), // June 17, 2024, 10:00 PM IST
-              },
-            },
-          })
-        );
 
         setCalls(calls);
       } catch (error) {
