@@ -19,7 +19,9 @@ export default function Meeting({ params }) {
       <StreamCall call={call}>
         <StreamTheme>
           {!isSetupComplete ? (
-            <MeetingSetup></MeetingSetup>
+            <MeetingSetup
+              setIsSetupComplete={setIsSetupComplete}
+            ></MeetingSetup>
           ) : (
             <MeetingRoom></MeetingRoom>
           )}
